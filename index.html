@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Florence Collection | Links</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'florence-light': '#F8F5F1', // Off-white da paleta
+                        'florence-beige': '#EADFCE', // Bege claro
+                        'florence-gold': '#B8860B',  // Dourado
+                        'florence-dark': '#1A1A1A',  // Preto suave
+                    },
+                    fontFamily: {
+                        'serif': ['Cinzel', 'serif'], // Fonte elegante para títulos
+                        'sans': ['Montserrat', 'sans-serif'], // Fonte limpa para textos
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.3s ease-out forwards',
+                        'fade-in': 'fadeIn 0.2s ease-out forwards',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(10px) scale(0.98)' },
+                            '100%': { opacity: '1', transform: 'translateY(0) scale(1)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Custom scrollbar for a cleaner look */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #EADFCE; 
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #B8860B; 
+        }
+
+        /* Subtle animation for links */
+        .link-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .link-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 20px -5px rgba(184, 134, 11, 0.15), 0 8px 10px -6px rgba(184, 134, 11, 0.1);
+            border-color: #B8860B;
+        }
+
+        /* Premium delicate star/dot background - Estático e Leve */
+        .bg-pattern {
+            background-color: #F8F5F1;
+            /* Pontinhos dourados com opacidade bem leve (0.15) */
+            background-image: radial-gradient(rgba(184, 134, 11, 0.15) 1.5px, transparent 1.5px);
+            background-size: 30px 30px;
+            background-attachment: fixed;
+        }
+
+        /* Modal specific scrollbar hiding for clean UI but still scrollable */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+    </style>
+</head>
+<body class="font-sans text-florence-dark bg-florence-light bg-pattern min-h-screen flex flex-col items-center py-10 px-4 relative z-0">
+
+    <main class="w-full max-w-md mx-auto flex flex-col items-center z-10 relative">
+        
+         <!-- Profile/Logo Section -->
+        <header class="flex flex-col items-center mb-10 w-full">
+            <!-- Aumentamos um pouco o tamanho (w-32) para compensar o respiro interno -->
+            <div class="w-32 h-32 md:w-36 md:h-36 rounded-full overflow-hidden mb-6 border-[2px] border-florence-gold shadow-[0_0_20px_rgba(184,134,11,0.25)] flex items-center justify-center bg-white">
+                <!-- ✏️ EDITAR AQUI: Caminho da imagem da sua logo -->
+                <!-- 🎨 AJUSTE PRINCIPAL: object-contain e p-4 para que a logo se ajuste perfeitamente sem ser cortada -->
+                <img src="./Florence Collection (5).png" alt="Florence Collection Logo" class="w-full h-full object-contain p-2">
+            </div>
+            
+            <!-- Alterado para dourado conforme solicitado -->
+            <!--<h1 class="font-serif text-3xl font-semibold tracking-wide text-center text-florence-gold mb-1">
+                FLORENCE
+            </h1>
+            <h2 class="font-serif text-[0.7rem] tracking-[0.4em] text-florence-gold mb-5 uppercase font-medium">
+                Collection
+            </h2> -->
+            <p class="text-center text-sm font-light text-gray-600 max-w-xs mb-2 leading-relaxed">
+                Elegância em cada detalhe. Joias delicadas para iluminar sua beleza com sofisticação.
+            </p>
+        </header>
+
+        <!-- Links Section -->
+        <section class="w-full flex flex-col gap-4 mb-10">
+            
+            <!-- Link 1: Compre Agora (Abre Modal) -->
+            <button onclick="openModal('modal-compre')" class="link-card w-full bg-white/85 backdrop-blur-md border border-florence-beige rounded-xl p-4 flex items-center justify-between group text-florence-dark hover:text-florence-gold outline-none text-left">
+                <div class="flex items-center gap-4">
+                    <div class="w-11 h-11 rounded-full bg-florence-beige/30 flex items-center justify-center group-hover:bg-florence-gold/15 transition-colors shadow-sm">
+                        <i class="fas fa-shopping-bag text-florence-gold"></i>
+                    </div>
+                    <span class="font-medium tracking-wide">Compre Agora</span>
+                </div>
+                <i class="fas fa-chevron-right text-xs text-florence-beige group-hover:text-florence-gold transition-colors"></i>
+            </button>
+
+            <!-- Link 2: Lançamentos (Abre Modal) -->
+            <button onclick="openModal('modal-lancamentos')" class="link-card w-full bg-white/85 backdrop-blur-md border border-florence-beige rounded-xl p-4 flex items-center justify-between group text-florence-dark hover:text-florence-gold outline-none text-left">
+                <div class="flex items-center gap-4">
+                    <div class="w-11 h-11 rounded-full bg-florence-beige/30 flex items-center justify-center group-hover:bg-florence-gold/15 transition-colors shadow-sm">
+                        <i class="fas fa-star text-florence-gold text-sm"></i>
+                    </div>
+                    <span class="font-medium tracking-wide">Lançamentos</span>
+                </div>
+                <i class="fas fa-chevron-right text-xs text-florence-beige group-hover:text-florence-gold transition-colors"></i>
+            </button>
+
+            <!-- Link 3: WhatsApp/Atendimento (Link Direto) -->
+            <!-- ✏️ EDITAR AQUI: Coloque o link do seu WhatsApp no href (ex: https://wa.me/5581999999999) -->
+            <a href="#" class="link-card w-full bg-white/85 backdrop-blur-md border border-florence-beige rounded-xl p-4 flex items-center justify-between group text-florence-dark hover:text-florence-gold">
+                <div class="flex items-center gap-4">
+                    <div class="w-11 h-11 rounded-full bg-florence-beige/30 flex items-center justify-center group-hover:bg-florence-gold/15 transition-colors shadow-sm">
+                        <i class="fab fa-whatsapp text-florence-gold text-lg"></i>
+                    </div>
+                    <span class="font-medium tracking-wide">Atendimento Personalizado</span>
+                </div>
+                <i class="fas fa-chevron-right text-xs text-florence-beige group-hover:text-florence-gold transition-colors"></i>
+            </a>
+
+            <!-- Link 4: Guia de Cuidados (Abre Modal) -->
+            <button onclick="openModal('modal-cuidados')" class="link-card w-full bg-white/85 backdrop-blur-md border border-florence-beige rounded-xl p-4 flex items-center justify-between group text-florence-dark hover:text-florence-gold outline-none text-left">
+                <div class="flex items-center gap-4">
+                    <div class="w-11 h-11 rounded-full bg-florence-beige/30 flex items-center justify-center group-hover:bg-florence-gold/15 transition-colors shadow-sm">
+                        <i class="fas fa-sparkles text-florence-gold"></i>
+                    </div>
+                    <span class="font-medium tracking-wide">Guia de Cuidados</span>
+                </div>
+                <i class="fas fa-chevron-right text-xs text-florence-beige group-hover:text-florence-gold transition-colors"></i>
+            </button>
+        </section>
+
+        <!-- Footer / Socials -->
+        <footer class="w-full flex flex-col items-center mt-4">
+            <div class="flex gap-6 mb-6">
+                <!-- ✏️ EDITAR AQUI: Substitua o "#" pelos links das suas redes sociais -->
+                <a href="https://www.instagram.com/florence.collectionbr/" class="text-florence-dark/60 hover:text-florence-gold transition-all hover:scale-110 text-xl">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <!-- <a href="#" class="text-florence-dark/60 hover:text-florence-gold transition-all hover:scale-110 text-xl">
+                    <i class="fab fa-facebook-f"></i> -->
+                </a>
+                <!-- <a href="#" class="text-florence-dark/60 hover:text-florence-gold transition-all hover:scale-110 text-xl">
+                    <i class="fab fa-tiktok"></i> -->
+                </a>
+            </div>
+            
+            <div class="flex items-center gap-2 text-[11px] text-florence-dark/50 uppercase tracking-widest font-medium">
+                <i class="fas fa-gem text-florence-gold text-[8px]"></i>
+                <span>Florence Collection</span>
+                <i class="fas fa-gem text-florence-gold text-[8px]"></i>
+            </div>
+        </footer>
+    </main>
+
+    <!-- MODALS SECTION -->
+    
+    <!-- Modal 1: Compre Agora -->
+    <div id="modal-compre" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-florence-dark/40 backdrop-blur-sm transition-opacity" onclick="closeModal('modal-compre')"></div>
+        
+        <!-- Modal Content -->
+        <div class="relative bg-[#FDFBF9] border border-florence-beige rounded-2xl p-6 md:p-8 w-full max-w-sm shadow-2xl animate-fade-in-up">
+            <button onclick="closeModal('modal-compre')" class="absolute top-4 right-4 text-gray-400 hover:text-florence-gold transition-colors w-8 h-8 flex items-center justify-center rounded-full bg-gray-50 hover:bg-florence-beige/30">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="flex flex-col items-center mb-6 mt-2">
+                <i class="fas fa-shopping-bag text-2xl text-florence-gold mb-3"></i>
+                <h3 class="font-serif text-xl text-center text-florence-dark">Escolha como comprar</h3>
+                <p class="text-xs text-gray-500 mt-1 text-center">Selecione o canal de sua preferência</p>
+            </div>
+            
+            <div class="flex flex-col gap-3">
+                <!-- ✏️ EDITAR AQUI: Link para o seu Site de compras -->
+                <a href="#" class="w-full bg-white border border-florence-beige py-4 px-4 rounded-xl flex items-center gap-4 hover:border-florence-gold hover:text-florence-gold transition-all shadow-sm group">
+                    <div class="w-10 h-10 rounded-full bg-florence-beige/20 flex items-center justify-center group-hover:bg-florence-gold/10 transition-colors">
+                        <i class="fas fa-globe text-florence-gold"></i>
+                    </div>
+                    <span class="font-medium">Compre pelo Site (Em construção)</span>
+                    <i class="fas fa-chevron-right text-xs ml-auto text-gray-300 group-hover:text-florence-gold"></i>
+                </a>
+                
+                <!-- ✏️ EDITAR AQUI: Link para o seu WhatsApp de Vendas -->
+                <a href="#" class="w-full bg-[#FAFAF8] border border-florence-beige py-4 px-4 rounded-xl flex items-center gap-4 hover:border-[#25D366] hover:text-[#25D366] transition-all shadow-sm group">
+                    <div class="w-10 h-10 rounded-full bg-[#25D366]/10 flex items-center justify-center group-hover:bg-[#25D366]/20 transition-colors">
+                        <i class="fab fa-whatsapp text-[#25D366] text-xl"></i>
+                    </div>
+                    <span class="font-medium">Compre pelo WhatsApp</span>
+                    <i class="fas fa-chevron-right text-xs ml-auto text-gray-300 group-hover:text-[#25D366]"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2: Lançamentos -->
+    <div id="modal-lancamentos" class="hidden fixed inset-0 z-50 flex items-end md:items-center justify-center sm:p-4">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-florence-dark/60 backdrop-blur-sm transition-opacity" onclick="closeModal('modal-lancamentos')"></div>
+        
+        <!-- Modal Content -->
+        <div class="relative bg-[#FDFBF9] border border-florence-beige rounded-t-3xl md:rounded-2xl w-full max-w-lg shadow-2xl animate-fade-in-up max-h-[85vh] flex flex-col">
+            
+            <!-- Modal Header -->
+            <div class="flex items-center justify-between p-5 border-b border-florence-beige/50 shrink-0">
+                <div>
+                    <h3 class="font-serif text-xl text-florence-dark flex items-center gap-2">
+                        <i class="fas fa-star text-florence-gold text-sm"></i> Lançamentos
+                    </h3>
+                    <p class="text-xs text-gray-500 mt-1">Descubra nossas novas peças</p>
+                </div>
+                <button onclick="closeModal('modal-lancamentos')" class="text-gray-400 hover:text-florence-gold transition-colors w-8 h-8 flex items-center justify-center rounded-full bg-gray-50 hover:bg-florence-beige/30">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <!-- Modal Body (Scrollable Gallery) -->
+            <div class="p-5 overflow-y-auto no-scrollbar flex-1">
+                <div class="grid grid-cols-2 gap-4">
+                    <!-- Item 1 -->
+                    <!-- ✏️ EDITAR AQUI: Link do produto (href) e caminho da imagem (src) -->
+                    <a href="#" class="group cursor-pointer flex flex-col">
+                        <div class="rounded-xl overflow-hidden h-40 mb-3 border border-florence-beige group-hover:border-florence-gold transition-colors shadow-sm relative">
+                            <img src="./Colar Nossa Senhora.png" alt="Lançamento 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        </div>
+                        <h4 class="text-sm font-medium text-florence-dark text-center group-hover:text-florence-gold transition-colors">Colar Nossa Senhora</h4>
+                        <p class="text-[10px] text-gray-400 text-center uppercase tracking-wider mt-1">Elegance</p>
+                    </a>
+                    
+                    <!-- Item 2 -->
+                    <!-- ✏️ EDITAR AQUI: Link do produto (href) e caminho da imagem (src) -->
+                    <a href="#" class="group cursor-pointer flex flex-col">
+                        <div class="rounded-xl overflow-hidden h-40 mb-3 border border-florence-beige group-hover:border-florence-gold transition-colors shadow-sm relative">
+                            <img src="./Brinco Folha.png" alt="Lançamento 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        </div>
+                        <h4 class="text-sm font-medium text-florence-dark text-center group-hover:text-florence-gold transition-colors">Brinco Folha Ouro</h4>
+                        <p class="text-[10px] text-gray-400 text-center uppercase tracking-wider mt-1">Nature</p>
+                    </a>
+                    
+                    <!-- Item 3 -->
+                    <!-- ✏️ EDITAR AQUI: Link do produto (href) e caminho da imagem (src) -->
+                    <a href="#" class="group cursor-pointer flex flex-col">
+                        <div class="rounded-xl overflow-hidden h-40 mb-3 border border-florence-beige group-hover:border-florence-gold transition-colors shadow-sm relative">
+                            <img src="./Brinco Pingo Dourado.png" alt="Lançamento 3" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        </div>
+                        <h4 class="text-sm font-medium text-florence-dark text-center group-hover:text-florence-gold transition-colors">Brinco Gota Cristal</h4>
+                        <p class="text-[10px] text-gray-400 text-center uppercase tracking-wider mt-1">Classic</p>
+                    </a>
+
+                    <!-- Placeholder para mais itens -->
+                    <div class="group cursor-pointer flex flex-col items-center justify-center border border-dashed border-florence-beige/70 rounded-xl h-40 bg-florence-light/50 hover:bg-florence-beige/20 hover:border-florence-gold transition-colors">
+                        <i class="fas fa-plus text-florence-gold/50 text-2xl mb-2"></i>
+                        <span class="text-xs text-gray-400 font-medium">Em breve</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 3: Guia de Cuidados -->
+    <div id="modal-cuidados" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-florence-dark/40 backdrop-blur-sm transition-opacity" onclick="closeModal('modal-cuidados')"></div>
+        
+        <!-- Modal Content -->
+        <div class="relative bg-[#FDFBF9] border border-florence-beige rounded-2xl p-6 md:p-8 w-full max-w-md shadow-2xl animate-fade-in-up max-h-[80vh] overflow-y-auto no-scrollbar">
+            <button onclick="closeModal('modal-cuidados')" class="absolute top-4 right-4 text-gray-400 hover:text-florence-gold transition-colors w-8 h-8 flex items-center justify-center rounded-full bg-gray-50 hover:bg-florence-beige/30">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="flex flex-col items-center mb-6 mt-2">
+                <i class="fas fa-gem text-2xl text-florence-gold mb-3"></i>
+                <h3 class="font-serif text-xl text-center text-florence-dark">Guia de Cuidados</h3>
+                <p class="text-xs text-gray-500 mt-1 text-center">Como manter suas joias sempre lindas</p>
+            </div>
+            
+            <div class="space-y-4 text-sm text-gray-600 font-light leading-relaxed">
+                <!-- ✏️ EDITAR AQUI: Insira o texto oficial do seu Guia de Cuidados substituindo este conteúdo -->
+                <p>Para manter o brilho e a durabilidade das suas peças Florence Collection, recomendamos alguns cuidados especiais:</p>
+                
+                <ul class="space-y-3 mt-4">
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-star text-florence-gold text-[10px] mt-1.5"></i>
+                        <span>Evite o contato direto com água, perfumes, cremes e produtos químicos.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-star text-florence-gold text-[10px] mt-1.5"></i>
+                        <span>Retire suas joias antes de tomar banho, entrar no mar ou piscina.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-star text-florence-gold text-[10px] mt-1.5"></i>
+                        <span>Guarde-as individualmente em local seco para evitar atrito e arranhões.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-star text-florence-gold text-[10px] mt-1.5"></i>
+                        <span>Limpe-as suavemente com uma flanela seca após o uso.</span>
+                    </li>
+                </ul>
+                
+                <div class="mt-6 p-4 bg-florence-beige/20 rounded-xl border border-florence-beige/50 text-center">
+                    <p class="text-xs text-florence-dark font-medium italic">"Uma joia bem cuidada conta histórias por gerações."</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Funcionalidade para abrir e fechar as janelas (Modais)
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.remove('hidden');
+                // Impede o scroll na página de trás quando o modal está aberto
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.add('hidden');
+                // Devolve o scroll normal para a página
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Fecha o modal ao pressionar a tecla ESC
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                const modals = ['modal-compre', 'modal-lancamentos', 'modal-cuidados'];
+                modals.forEach(id => {
+                    const el = document.getElementById(id);
+                    if (!el.classList.contains('hidden')) {
+                        closeModal(id);
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
