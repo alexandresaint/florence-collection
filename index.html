@@ -13,14 +13,14 @@
             theme: {
                 extend: {
                     colors: {
-                        'florence-light': '#F8F5F1', // Off-white da paleta
-                        'florence-beige': '#EADFCE', // Bege claro
-                        'florence-gold': '#B8860B',  // Dourado
-                        'florence-dark': '#1A1A1A',  // Preto suave
+                        'florence-light': '#F8F5F1',
+                        'florence-beige': '#EADFCE',
+                        'florence-gold': '#B8860B',
+                        'florence-dark': '#1A1A1A',
                     },
                     fontFamily: {
-                        'serif': ['Cinzel', 'serif'], // Fonte elegante para títulos
-                        'sans': ['Montserrat', 'sans-serif'], // Fonte limpa para textos
+                        'serif': ['Cinzel', 'serif'],
+                        'sans': ['Montserrat', 'sans-serif'],
                     },
                     animation: {
                         'fade-in-up': 'fadeInUp 0.3s ease-out forwards',
@@ -42,70 +42,39 @@
     </script>
     
     <style>
-        /* Custom scrollbar for a cleaner look */
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: transparent; 
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #EADFCE; 
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #B8860B; 
-        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #EADFCE; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #B8860B; }
 
-        /* Subtle animation for links */
-        .link-card {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
+        .link-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
         .link-card:hover {
             transform: translateY(-3px);
             box-shadow: 0 12px 20px -5px rgba(184, 134, 11, 0.15), 0 8px 10px -6px rgba(184, 134, 11, 0.1);
             border-color: #B8860B;
         }
 
-        /* Premium delicate star/dot background - Estático e Leve */
         .bg-pattern {
             background-color: #F8F5F1;
-            /* Pontinhos dourados com opacidade bem leve (0.15) */
             background-image: radial-gradient(rgba(184, 134, 11, 0.15) 1.5px, transparent 1.5px);
             background-size: 30px 30px;
             background-attachment: fixed;
         }
 
-        /* Modal specific scrollbar hiding for clean UI but still scrollable */
-        .no-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-        .no-scrollbar {
-            -ms-overflow-style: none;  /* IE and Edge */
-            scrollbar-width: none;  /* Firefox */
-        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
 <body class="font-sans text-florence-dark bg-florence-light bg-pattern min-h-screen flex flex-col items-center py-10 px-4 relative z-0">
 
     <main class="w-full max-w-md mx-auto flex flex-col items-center z-10 relative">
         
-         <!-- Profile/Logo Section -->
+        <!-- Profile/Logo Section -->
         <header class="flex flex-col items-center mb-10 w-full">
-            <!-- Aumentamos um pouco o tamanho (w-32) para compensar o respiro interno -->
             <div class="w-32 h-32 md:w-36 md:h-36 rounded-full overflow-hidden mb-6 border-[2px] border-florence-gold shadow-[0_0_20px_rgba(184,134,11,0.25)] flex items-center justify-center bg-white">
-                <!-- ✏️ EDITAR AQUI: Caminho da imagem da sua logo -->
-                <!-- 🎨 AJUSTE PRINCIPAL: object-contain e p-4 para que a logo se ajuste perfeitamente sem ser cortada -->
                 <img src="./Florence Collection (5).png" alt="Florence Collection Logo" class="w-full h-full object-contain p-2">
             </div>
             
-            <!-- Alterado para dourado conforme solicitado -->
-            <!--<h1 class="font-serif text-3xl font-semibold tracking-wide text-center text-florence-gold mb-1">
-                FLORENCE
-            </h1>
-            <h2 class="font-serif text-[0.7rem] tracking-[0.4em] text-florence-gold mb-5 uppercase font-medium">
-                Collection
-            </h2> -->
             <p class="text-center text-sm font-light text-gray-600 max-w-xs mb-2 leading-relaxed">
                 Elegância em cada detalhe. Joias delicadas para iluminar sua beleza com sofisticação.
             </p>
@@ -114,8 +83,8 @@
         <!-- Links Section -->
         <section class="w-full flex flex-col gap-4 mb-10">
             
-            <!-- Link 1: Compre Agora (Abre Modal) -->
-            <button onclick="openModal('modal-compre')" class="link-card w-full bg-white/85 backdrop-blur-md border border-florence-beige rounded-xl p-4 flex items-center justify-between group text-florence-dark hover:text-florence-gold outline-none text-left">
+            <!-- Link 1: Compre Agora (Direto WhatsApp) -->
+            <a href="https://wa.me/5581993026600?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20uma%20compra." target="_blank" class="link-card w-full bg-white/85 backdrop-blur-md border border-florence-beige rounded-xl p-4 flex items-center justify-between group text-florence-dark hover:text-florence-gold outline-none text-left">
                 <div class="flex items-center gap-4">
                     <div class="w-11 h-11 rounded-full bg-florence-beige/30 flex items-center justify-center group-hover:bg-florence-gold/15 transition-colors shadow-sm">
                         <i class="fas fa-shopping-bag text-florence-gold"></i>
@@ -123,32 +92,20 @@
                     <span class="font-medium tracking-wide">Compre Agora</span>
                 </div>
                 <i class="fas fa-chevron-right text-xs text-florence-beige group-hover:text-florence-gold transition-colors"></i>
-            </button>
+            </a>
 
-            <!-- Link 2: Lançamentos (Abre Modal) -->
-            <button onclick="openModal('modal-lancamentos')" class="link-card w-full bg-white/85 backdrop-blur-md border border-florence-beige rounded-xl p-4 flex items-center justify-between group text-florence-dark hover:text-florence-gold outline-none text-left">
+            <!-- Link 2: Catálogo (Abre Modal VITRINE) -->
+            <button onclick="openModal('modal-catalogo')" class="link-card w-full bg-white/85 backdrop-blur-md border border-florence-beige rounded-xl p-4 flex items-center justify-between group text-florence-dark hover:text-florence-gold outline-none text-left">
                 <div class="flex items-center gap-4">
                     <div class="w-11 h-11 rounded-full bg-florence-beige/30 flex items-center justify-center group-hover:bg-florence-gold/15 transition-colors shadow-sm">
                         <i class="fas fa-star text-florence-gold text-sm"></i>
                     </div>
-                    <span class="font-medium tracking-wide">Lançamentos</span>
+                    <span class="font-medium tracking-wide">Catálogo</span>
                 </div>
                 <i class="fas fa-chevron-right text-xs text-florence-beige group-hover:text-florence-gold transition-colors"></i>
             </button>
 
-            <!-- Link 3: WhatsApp/Atendimento (Link Direto) -->
-            <!-- ✏️ EDITAR AQUI: Coloque o link do seu WhatsApp no href (ex: https://wa.me/5581999999999) -->
-            <a href="#" class="link-card w-full bg-white/85 backdrop-blur-md border border-florence-beige rounded-xl p-4 flex items-center justify-between group text-florence-dark hover:text-florence-gold">
-                <div class="flex items-center gap-4">
-                    <div class="w-11 h-11 rounded-full bg-florence-beige/30 flex items-center justify-center group-hover:bg-florence-gold/15 transition-colors shadow-sm">
-                        <i class="fab fa-whatsapp text-florence-gold text-lg"></i>
-                    </div>
-                    <span class="font-medium tracking-wide">Atendimento Personalizado</span>
-                </div>
-                <i class="fas fa-chevron-right text-xs text-florence-beige group-hover:text-florence-gold transition-colors"></i>
-            </a>
-
-            <!-- Link 4: Guia de Cuidados (Abre Modal) -->
+            <!-- Link 3: Guia de Cuidados (Abre Modal) -->
             <button onclick="openModal('modal-cuidados')" class="link-card w-full bg-white/85 backdrop-blur-md border border-florence-beige rounded-xl p-4 flex items-center justify-between group text-florence-dark hover:text-florence-gold outline-none text-left">
                 <div class="flex items-center gap-4">
                     <div class="w-11 h-11 rounded-full bg-florence-beige/30 flex items-center justify-center group-hover:bg-florence-gold/15 transition-colors shadow-sm">
@@ -163,18 +120,10 @@
         <!-- Footer / Socials -->
         <footer class="w-full flex flex-col items-center mt-4">
             <div class="flex gap-6 mb-6">
-                <!-- ✏️ EDITAR AQUI: Substitua o "#" pelos links das suas redes sociais -->
                 <a href="https://www.instagram.com/florence.collectionbr/" class="text-florence-dark/60 hover:text-florence-gold transition-all hover:scale-110 text-xl">
                     <i class="fab fa-instagram"></i>
                 </a>
-                <!-- <a href="#" class="text-florence-dark/60 hover:text-florence-gold transition-all hover:scale-110 text-xl">
-                    <i class="fab fa-facebook-f"></i> -->
-                </a>
-                <!-- <a href="#" class="text-florence-dark/60 hover:text-florence-gold transition-all hover:scale-110 text-xl">
-                    <i class="fab fa-tiktok"></i> -->
-                </a>
             </div>
-            
             <div class="flex items-center gap-2 text-[11px] text-florence-dark/50 uppercase tracking-widest font-medium">
                 <i class="fas fa-gem text-florence-gold text-[8px]"></i>
                 <span>Florence Collection</span>
@@ -183,120 +132,361 @@
         </footer>
     </main>
 
-    <!-- MODALS SECTION -->
-    
-    <!-- Modal 1: Compre Agora -->
-    <div id="modal-compre" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4">
-        <!-- Backdrop -->
-        <div class="absolute inset-0 bg-florence-dark/40 backdrop-blur-sm transition-opacity" onclick="closeModal('modal-compre')"></div>
+    <!-- Modal 1: Catálogo (Vitrine em Grid) -->
+    <!-- ALARGADO: max-w-5xl e w-[95vw] para acomodar as 3 colunas no desktop -->
+    <div id="modal-catalogo" class="hidden fixed inset-0 z-50 flex items-end md:items-center justify-center sm:p-4">
+        <div class="absolute inset-0 bg-florence-dark/60 backdrop-blur-sm transition-opacity" onclick="closeModal('modal-catalogo')"></div>
         
-        <!-- Modal Content -->
-        <div class="relative bg-[#FDFBF9] border border-florence-beige rounded-2xl p-6 md:p-8 w-full max-w-sm shadow-2xl animate-fade-in-up">
-            <button onclick="closeModal('modal-compre')" class="absolute top-4 right-4 text-gray-400 hover:text-florence-gold transition-colors w-8 h-8 flex items-center justify-center rounded-full bg-gray-50 hover:bg-florence-beige/30">
-                <i class="fas fa-times"></i>
-            </button>
-            
-            <div class="flex flex-col items-center mb-6 mt-2">
-                <i class="fas fa-shopping-bag text-2xl text-florence-gold mb-3"></i>
-                <h3 class="font-serif text-xl text-center text-florence-dark">Escolha como comprar</h3>
-                <p class="text-xs text-gray-500 mt-1 text-center">Selecione o canal de sua preferência</p>
-            </div>
-            
-            <div class="flex flex-col gap-3">
-                <!-- ✏️ EDITAR AQUI: Link para o seu Site de compras -->
-                <a href="#" class="w-full bg-white border border-florence-beige py-4 px-4 rounded-xl flex items-center gap-4 hover:border-florence-gold hover:text-florence-gold transition-all shadow-sm group">
-                    <div class="w-10 h-10 rounded-full bg-florence-beige/20 flex items-center justify-center group-hover:bg-florence-gold/10 transition-colors">
-                        <i class="fas fa-globe text-florence-gold"></i>
-                    </div>
-                    <span class="font-medium">Compre pelo Site (Em construção)</span>
-                    <i class="fas fa-chevron-right text-xs ml-auto text-gray-300 group-hover:text-florence-gold"></i>
-                </a>
-                
-                <!-- ✏️ EDITAR AQUI: Link para o seu WhatsApp de Vendas -->
-                <a href="#" class="w-full bg-[#FAFAF8] border border-florence-beige py-4 px-4 rounded-xl flex items-center gap-4 hover:border-[#25D366] hover:text-[#25D366] transition-all shadow-sm group">
-                    <div class="w-10 h-10 rounded-full bg-[#25D366]/10 flex items-center justify-center group-hover:bg-[#25D366]/20 transition-colors">
-                        <i class="fab fa-whatsapp text-[#25D366] text-xl"></i>
-                    </div>
-                    <span class="font-medium">Compre pelo WhatsApp</span>
-                    <i class="fas fa-chevron-right text-xs ml-auto text-gray-300 group-hover:text-[#25D366]"></i>
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal 2: Lançamentos -->
-    <div id="modal-lancamentos" class="hidden fixed inset-0 z-50 flex items-end md:items-center justify-center sm:p-4">
-        <!-- Backdrop -->
-        <div class="absolute inset-0 bg-florence-dark/60 backdrop-blur-sm transition-opacity" onclick="closeModal('modal-lancamentos')"></div>
-        
-        <!-- Modal Content -->
-        <div class="relative bg-[#FDFBF9] border border-florence-beige rounded-t-3xl md:rounded-2xl w-full max-w-lg shadow-2xl animate-fade-in-up max-h-[85vh] flex flex-col">
+        <div class="relative bg-[#FDFBF9] border border-florence-beige rounded-t-3xl md:rounded-2xl w-[95vw] max-w-5xl shadow-2xl animate-fade-in-up h-[90vh] md:h-[85vh] flex flex-col">
             
             <!-- Modal Header -->
-            <div class="flex items-center justify-between p-5 border-b border-florence-beige/50 shrink-0">
+            <div class="flex items-center justify-between p-5 border-b border-florence-beige/50 shrink-0 bg-[#FDFBF9] rounded-t-3xl md:rounded-t-2xl z-20">
                 <div>
-                    <h3 class="font-serif text-xl text-florence-dark flex items-center gap-2">
-                        <i class="fas fa-star text-florence-gold text-sm"></i> Lançamentos
+                    <h3 class="font-serif text-xl text-florence-dark flex items-center gap-2 font-semibold">
+                        <i class="fas fa-star text-florence-gold text-sm"></i> Catálogo
                     </h3>
-                    <p class="text-xs text-gray-500 mt-1">Descubra nossas novas peças</p>
+                    <p class="text-xs text-gray-500 mt-1">Descubra nossas peças exclusivas</p>
                 </div>
-                <button onclick="closeModal('modal-lancamentos')" class="text-gray-400 hover:text-florence-gold transition-colors w-8 h-8 flex items-center justify-center rounded-full bg-gray-50 hover:bg-florence-beige/30">
+                <button onclick="closeModal('modal-catalogo')" class="text-gray-400 hover:text-florence-gold transition-colors w-8 h-8 flex items-center justify-center rounded-full bg-gray-50 hover:bg-florence-beige/30">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
             
-            <!-- Modal Body (Scrollable Gallery) -->
-            <div class="p-5 overflow-y-auto no-scrollbar flex-1">
-                <div class="grid grid-cols-2 gap-4">
-                    <!-- Item 1 -->
-                    <!-- ✏️ EDITAR AQUI: Link do produto (href) e caminho da imagem (src) -->
-                    <a href="#" class="group cursor-pointer flex flex-col">
-                        <div class="rounded-xl overflow-hidden h-40 mb-3 border border-florence-beige group-hover:border-florence-gold transition-colors shadow-sm relative">
-                            <img src="./Colar Nossa Senhora.png" alt="Lançamento 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                        </div>
-                        <h4 class="text-sm font-medium text-florence-dark text-center group-hover:text-florence-gold transition-colors">Colar Nossa Senhora</h4>
-                        <p class="text-[10px] text-gray-400 text-center uppercase tracking-wider mt-1">Elegance</p>
-                    </a>
+            <!-- Modal Body (Grid de Produtos) -->
+            <div class="p-4 md:p-6 overflow-y-auto no-scrollbar flex-1 pb-10">
+                <!-- GRID: 2 colunas no mobile, 3 colunas no desktop -->
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-6">
                     
-                    <!-- Item 2 -->
-                    <!-- ✏️ EDITAR AQUI: Link do produto (href) e caminho da imagem (src) -->
-                    <a href="#" class="group cursor-pointer flex flex-col">
-                        <div class="rounded-xl overflow-hidden h-40 mb-3 border border-florence-beige group-hover:border-florence-gold transition-colors shadow-sm relative">
-                            <img src="./Brinco Folha.png" alt="Lançamento 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <!-- Produto 1: Colar Dourado Gota Cristal -->
+                    <div class="bg-white rounded-xl border border-florence-beige shadow-sm overflow-hidden flex flex-col group h-full">
+                        <!-- AJUSTE DA IMAGEM: aspect-[4/5] e object-contain para não cortar a foto -->
+                        <div class="w-full aspect-[4/5] relative bg-[#faf9f7] p-2 flex items-center justify-center">
+                            <img src="./Colar Gota.png" alt="Colar Dourado Gota Cristal" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700">
                         </div>
-                        <h4 class="text-sm font-medium text-florence-dark text-center group-hover:text-florence-gold transition-colors">Brinco Folha Ouro</h4>
-                        <p class="text-[10px] text-gray-400 text-center uppercase tracking-wider mt-1">Nature</p>
-                    </a>
-                    
-                    <!-- Item 3 -->
-                    <!-- ✏️ EDITAR AQUI: Link do produto (href) e caminho da imagem (src) -->
-                    <a href="#" class="group cursor-pointer flex flex-col">
-                        <div class="rounded-xl overflow-hidden h-40 mb-3 border border-florence-beige group-hover:border-florence-gold transition-colors shadow-sm relative">
-                            <img src="./Brinco Pingo Dourado.png" alt="Lançamento 3" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div class="p-3 md:p-4 flex flex-col flex-1">
+                            <div class="flex-1">
+                                <h4 class="font-serif text-florence-dark font-semibold leading-tight text-sm md:text-base mb-1">Colar Dourado Gota Cristal</h4>
+                                <span class="text-[9px] md:text-[10px] text-gray-400 tracking-wider">REF: FL13-COLAR</span>
+                                <p class="text-[10px] md:text-xs text-gray-500 leading-relaxed mt-2 line-clamp-2 md:line-clamp-3">Colar dourado longo com pingente delicado em formato de gota e pedra cristal. Elegante, feminino e versátil, perfeito para trazer brilho sutil a produções do dia a dia.</p>
+                            </div>
+                            <div class="flex flex-col mt-3 pt-3 border-t border-gray-100 gap-2">
+                                <span class="font-bold text-florence-gold text-base md:text-lg">R$ 79,90</span>
+                                <button onclick="buyProduct('Colar Dourado Gota Cristal', 'FL13-COLAR')" class="w-full bg-[#25D366] text-white text-[11px] md:text-xs px-3 py-2.5 rounded-lg font-medium hover:bg-[#20bd5a] transition-colors flex items-center justify-center gap-2 shadow-sm">
+                                    <i class="fab fa-whatsapp text-sm md:text-base"></i> Comprar
+                                </button>
+                            </div>
                         </div>
-                        <h4 class="text-sm font-medium text-florence-dark text-center group-hover:text-florence-gold transition-colors">Brinco Gota Cristal</h4>
-                        <p class="text-[10px] text-gray-400 text-center uppercase tracking-wider mt-1">Classic</p>
-                    </a>
-
-                    <!-- Placeholder para mais itens -->
-                    <div class="group cursor-pointer flex flex-col items-center justify-center border border-dashed border-florence-beige/70 rounded-xl h-40 bg-florence-light/50 hover:bg-florence-beige/20 hover:border-florence-gold transition-colors">
-                        <i class="fas fa-plus text-florence-gold/50 text-2xl mb-2"></i>
-                        <span class="text-xs text-gray-400 font-medium">Em breve</span>
                     </div>
+
+                    <!-- Produto 2: Brinco Gota Vazada Dourado -->
+                    <div class="bg-white rounded-xl border border-florence-beige shadow-sm overflow-hidden flex flex-col group h-full">
+                        <div class="w-full aspect-[4/5] relative bg-[#faf9f7] p-2 flex items-center justify-center">
+                            <img src="./Brinco Gota Organico.png" alt="Brinco Gota Vazada Dourado" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700">
+                        </div>
+                        <div class="p-3 md:p-4 flex flex-col flex-1">
+                            <div class="flex-1">
+                                <h4 class="font-serif text-florence-dark font-semibold leading-tight text-sm md:text-base mb-1">Brinco Gota Vazada Dourado</h4>
+                                <span class="text-[9px] md:text-[10px] text-gray-400 tracking-wider">REF: FL14-BRINCO</span>
+                                <p class="text-[10px] md:text-xs text-gray-500 leading-relaxed mt-2 line-clamp-2 md:line-clamp-3">Com design contemporâneo e acabamento polido, o Brinco Gota Vazada Dourado une leveza e sofisticação em uma peça marcante de formato orgânico.</p>
+                            </div>
+                            <div class="flex flex-col mt-3 pt-3 border-t border-gray-100 gap-2">
+                                <span class="font-bold text-florence-gold text-base md:text-lg">R$ 59,90</span>
+                                <button onclick="buyProduct('Brinco Gota Vazada Dourado', 'FL14-BRINCO')" class="w-full bg-[#25D366] text-white text-[11px] md:text-xs px-3 py-2.5 rounded-lg font-medium hover:bg-[#20bd5a] transition-colors flex items-center justify-center gap-2 shadow-sm">
+                                    <i class="fab fa-whatsapp text-sm md:text-base"></i> Comprar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Produto 3: Argola Lisa Dourada -->
+                    <div class="bg-white rounded-xl border border-florence-beige shadow-sm overflow-hidden flex flex-col group h-full">
+                        <div class="w-full aspect-[4/5] relative bg-[#faf9f7] p-2 flex items-center justify-center">
+                            <img src="./Argola Dourada Lisa.png" alt="Argola Lisa Dourada" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700">
+                        </div>
+                        <div class="p-3 md:p-4 flex flex-col flex-1">
+                            <div class="flex-1">
+                                <h4 class="font-serif text-florence-dark font-semibold leading-tight text-sm md:text-base mb-1">Argola Lisa Dourada</h4>
+                                <span class="text-[9px] md:text-[10px] text-gray-400 tracking-wider">REF: FL09-ARGOLA</span>
+                                <p class="text-[10px] md:text-xs text-gray-500 leading-relaxed mt-2 line-clamp-2 md:line-clamp-3">Minimalista e atemporal, a Argola Lisa Dourada é um clássico indispensável. Com acabamento polido e design leve, é perfeita para o uso diário.</p>
+                            </div>
+                            <div class="flex flex-col mt-3 pt-3 border-t border-gray-100 gap-2">
+                                <span class="font-bold text-florence-gold text-base md:text-lg">R$ 49,90</span>
+                                <button onclick="buyProduct('Argola Lisa Dourada', 'FL09-ARGOLA')" class="w-full bg-[#25D366] text-white text-[11px] md:text-xs px-3 py-2.5 rounded-lg font-medium hover:bg-[#20bd5a] transition-colors flex items-center justify-center gap-2 shadow-sm">
+                                    <i class="fab fa-whatsapp text-sm md:text-base"></i> Comprar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Produto 4: Argola Olho Grego Dourada -->
+                    <div class="bg-white rounded-xl border border-florence-beige shadow-sm overflow-hidden flex flex-col group h-full">
+                        <div class="w-full aspect-[4/5] relative bg-[#faf9f7] p-2 flex items-center justify-center">
+                            <img src="./Argola Dourada Olho Grego.png" alt="Argola Olho Grego Dourada" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700">
+                        </div>
+                        <div class="p-3 md:p-4 flex flex-col flex-1">
+                            <div class="flex-1">
+                                <h4 class="font-serif text-florence-dark font-semibold leading-tight text-sm md:text-base mb-1">Argola Olho Grego Dourada</h4>
+                                <span class="text-[9px] md:text-[10px] text-gray-400 tracking-wider">REF: FL10-ARGOLA</span>
+                                <p class="text-[10px] md:text-xs text-gray-500 leading-relaxed mt-2 line-clamp-2 md:line-clamp-3">Delicada e cheia de significado, a Argola Olho Grego combina o design clássico com um pingente, símbolo tradicional de proteção.</p>
+                            </div>
+                            <div class="flex flex-col mt-3 pt-3 border-t border-gray-100 gap-2">
+                                <span class="font-bold text-florence-gold text-base md:text-lg">R$ 39,90</span>
+                                <button onclick="buyProduct('Argola Olho Grego Dourada', 'FL10-ARGOLA')" class="w-full bg-[#25D366] text-white text-[11px] md:text-xs px-3 py-2.5 rounded-lg font-medium hover:bg-[#20bd5a] transition-colors flex items-center justify-center gap-2 shadow-sm">
+                                    <i class="fab fa-whatsapp text-sm md:text-base"></i> Comprar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Produto 5: Brinco Ponto de Luz Dourado -->
+                    <div class="bg-white rounded-xl border border-florence-beige shadow-sm overflow-hidden flex flex-col group h-full">
+                        <div class="w-full aspect-[4/5] relative bg-[#faf9f7] p-2 flex items-center justify-center">
+                            <img src="./Brinco Pequeno Ponto de Luz.png" alt="Brinco Ponto de Luz Dourado" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700">
+                        </div>
+                        <div class="p-3 md:p-4 flex flex-col flex-1">
+                            <div class="flex-1">
+                                <h4 class="font-serif text-florence-dark font-semibold leading-tight text-sm md:text-base mb-1">Brinco Ponto de Luz Dourado</h4>
+                                <span class="text-[9px] md:text-[10px] text-gray-400 tracking-wider">REF: FL06-BRINCO</span>
+                                <p class="text-[10px] md:text-xs text-gray-500 leading-relaxed mt-2 line-clamp-2 md:line-clamp-3">Clássico e indispensável, possui uma pedra central de brilho intenso, presa por quatro garras que valorizam sua luminosidade.</p>
+                            </div>
+                            <div class="flex flex-col mt-3 pt-3 border-t border-gray-100 gap-2">
+                                <span class="font-bold text-florence-gold text-base md:text-lg">R$ 29,90</span>
+                                <button onclick="buyProduct('Brinco Ponto de Luz Dourado', 'FL06-BRINCO')" class="w-full bg-[#25D366] text-white text-[11px] md:text-xs px-3 py-2.5 rounded-lg font-medium hover:bg-[#20bd5a] transition-colors flex items-center justify-center gap-2 shadow-sm">
+                                    <i class="fab fa-whatsapp text-sm md:text-base"></i> Comprar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Produto 6: Anel Dourado Cruzado com Cristais -->
+                    <div class="bg-white rounded-xl border border-florence-beige shadow-sm overflow-hidden flex flex-col group h-full">
+                        <div class="w-full aspect-[4/5] relative bg-[#faf9f7] p-2 flex items-center justify-center">
+                            <img src="./Anel Dourado Traçado.png" alt="Anel Dourado Cruzado com Cristais" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700">
+                        </div>
+                        <div class="p-3 md:p-4 flex flex-col flex-1">
+                            <div class="flex-1">
+                                <h4 class="font-serif text-florence-dark font-semibold leading-tight text-sm md:text-base mb-1">Anel Cruzado com Cristais</h4>
+                                <span class="text-[9px] md:text-[10px] text-gray-400 tracking-wider">REF: FL15-ANEL</span>
+                                <p class="text-[10px] md:text-xs text-gray-500 leading-relaxed mt-2 line-clamp-2 md:line-clamp-3">Anel dourado com aro cruzado e acabamento sofisticado, onde uma das hastes é cravejada com cristais que proporcionam brilho delicado.</p>
+                            </div>
+                            <div class="flex flex-col mt-3 pt-3 border-t border-gray-100 gap-2">
+                                <span class="font-bold text-florence-gold text-base md:text-lg">R$ 79,90</span>
+                                <button onclick="buyProduct('Anel Dourado Cruzado com Cristais', 'FL15-ANEL')" class="w-full bg-[#25D366] text-white text-[11px] md:text-xs px-3 py-2.5 rounded-lg font-medium hover:bg-[#20bd5a] transition-colors flex items-center justify-center gap-2 shadow-sm">
+                                    <i class="fab fa-whatsapp text-sm md:text-base"></i> Comprar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Produto 7: Anel Dourado Curvo com Cristais -->
+                    <div class="bg-white rounded-xl border border-florence-beige shadow-sm overflow-hidden flex flex-col group h-full">
+                        <div class="w-full aspect-[4/5] relative bg-[#faf9f7] p-2 flex items-center justify-center">
+                            <img src="./Anel Dourado Ondulado.png" alt="Anel Dourado Curvo com Cristais" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700">
+                        </div>
+                        <div class="p-3 md:p-4 flex flex-col flex-1">
+                            <div class="flex-1">
+                                <h4 class="font-serif text-florence-dark font-semibold leading-tight text-sm md:text-base mb-1">Anel Dourado Curvo</h4>
+                                <span class="text-[9px] md:text-[10px] text-gray-400 tracking-wider">REF: FL14-ANEL</span>
+                                <p class="text-[10px] md:text-xs text-gray-500 leading-relaxed mt-2 line-clamp-2 md:line-clamp-3">Design contemporâneo em formato curvo, enriquecido por uma fileira delicada de cristais. Transmite elegância e leveza.</p>
+                            </div>
+                            <div class="flex flex-col mt-3 pt-3 border-t border-gray-100 gap-2">
+                                <span class="font-bold text-florence-gold text-base md:text-lg">R$ 59,90</span>
+                                <button onclick="buyProduct('Anel Dourado Curvo com Cristais', 'FL14-ANEL')" class="w-full bg-[#25D366] text-white text-[11px] md:text-xs px-3 py-2.5 rounded-lg font-medium hover:bg-[#20bd5a] transition-colors flex items-center justify-center gap-2 shadow-sm">
+                                    <i class="fab fa-whatsapp text-sm md:text-base"></i> Comprar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Produto 8: Anel Dourado Gota com Cristais -->
+                    <div class="bg-white rounded-xl border border-florence-beige shadow-sm overflow-hidden flex flex-col group h-full">
+                        <div class="w-full aspect-[4/5] relative bg-[#faf9f7] p-2 flex items-center justify-center">
+                            <img src="./Anel Dourado Gota.png" alt="Anel Dourado Gota com Cristais" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700">
+                        </div>
+                        <div class="p-3 md:p-4 flex flex-col flex-1">
+                            <div class="flex-1">
+                                <h4 class="font-serif text-florence-dark font-semibold leading-tight text-sm md:text-base mb-1">Anel Dourado Gota</h4>
+                                <span class="text-[9px] md:text-[10px] text-gray-400 tracking-wider">REF: FL16-ANEL</span>
+                                <p class="text-[10px] md:text-xs text-gray-500 leading-relaxed mt-2 line-clamp-2 md:line-clamp-3">Aro fino e detalhe central em formato gota, cravejado com cristais que proporcionam brilho delicado e elegante.</p>
+                            </div>
+                            <div class="flex flex-col mt-3 pt-3 border-t border-gray-100 gap-2">
+                                <span class="font-bold text-florence-gold text-base md:text-lg">R$ 54,90</span>
+                                <button onclick="buyProduct('Anel Dourado Gota com Cristais', 'FL16-ANEL')" class="w-full bg-[#25D366] text-white text-[11px] md:text-xs px-3 py-2.5 rounded-lg font-medium hover:bg-[#20bd5a] transition-colors flex items-center justify-center gap-2 shadow-sm">
+                                    <i class="fab fa-whatsapp text-sm md:text-base"></i> Comprar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Produto 9: Argola Prateada Trabalhada -->
+                    <div class="bg-white rounded-xl border border-florence-beige shadow-sm overflow-hidden flex flex-col group h-full">
+                        <div class="w-full aspect-[4/5] relative bg-[#faf9f7] p-2 flex items-center justify-center">
+                            <img src="./Argola Metalica Trabalhada.png" alt="Argola Prateada Trabalhada" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700">
+                        </div>
+                        <div class="p-3 md:p-4 flex flex-col flex-1">
+                            <div class="flex-1">
+                                <h4 class="font-serif text-florence-dark font-semibold leading-tight text-sm md:text-base mb-1">Argola Prateada Trabalhada</h4>
+                                <span class="text-[9px] md:text-[10px] text-gray-400 tracking-wider">REF: FL08-ARGOLA</span>
+                                <p class="text-[10px] md:text-xs text-gray-500 leading-relaxed mt-2 line-clamp-2 md:line-clamp-3">Argola prateada com acabamento trabalhado em relevo e detalhes ornamentais que valorizam a peça.</p>
+                            </div>
+                            <div class="flex flex-col mt-3 pt-3 border-t border-gray-100 gap-2">
+                                <span class="font-bold text-florence-gold text-base md:text-lg">R$ 34,90</span>
+                                <button onclick="buyProduct('Argola Prateada Trabalhada', 'FL08-ARGOLA')" class="w-full bg-[#25D366] text-white text-[11px] md:text-xs px-3 py-2.5 rounded-lg font-medium hover:bg-[#20bd5a] transition-colors flex items-center justify-center gap-2 shadow-sm">
+                                    <i class="fab fa-whatsapp text-sm md:text-base"></i> Comprar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Produto 10: Brinco Orgânico Dourado Vazado -->
+                    <div class="bg-white rounded-xl border border-florence-beige shadow-sm overflow-hidden flex flex-col group h-full">
+                        <div class="w-full aspect-[4/5] relative bg-[#faf9f7] p-2 flex items-center justify-center">
+                            <img src="./Brinco Organico Texturizado.png" alt="Brinco Orgânico Dourado Vazado" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700">
+                        </div>
+                        <div class="p-3 md:p-4 flex flex-col flex-1">
+                            <div class="flex-1">
+                                <h4 class="font-serif text-florence-dark font-semibold leading-tight text-sm md:text-base mb-1">Brinco Orgânico Vazado</h4>
+                                <span class="text-[9px] md:text-[10px] text-gray-400 tracking-wider">REF: FL01-BRINCO</span>
+                                <p class="text-[10px] md:text-xs text-gray-500 leading-relaxed mt-2 line-clamp-2 md:line-clamp-3">Design orgânico vazado e acabamento polido, inspirado nas formas naturais. Peça contemporânea e leve.</p>
+                            </div>
+                            <div class="flex flex-col mt-3 pt-3 border-t border-gray-100 gap-2">
+                                <span class="font-bold text-florence-gold text-base md:text-lg">R$ 59,90</span>
+                                <button onclick="buyProduct('Brinco Orgânico Dourado Vazado', 'FL01-BRINCO')" class="w-full bg-[#25D366] text-white text-[11px] md:text-xs px-3 py-2.5 rounded-lg font-medium hover:bg-[#20bd5a] transition-colors flex items-center justify-center gap-2 shadow-sm">
+                                    <i class="fab fa-whatsapp text-sm md:text-base"></i> Comprar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Produto 11: Brinco Quadrado Dourado com Zircônias -->
+                    <div class="bg-white rounded-xl border border-florence-beige shadow-sm overflow-hidden flex flex-col group h-full">
+                        <div class="w-full aspect-[4/5] relative bg-[#faf9f7] p-2 flex items-center justify-center">
+                            <img src="./Brinco Quadrado Zirconia.png" alt="Brinco Quadrado Dourado com Zircônias" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700">
+                        </div>
+                        <div class="p-3 md:p-4 flex flex-col flex-1">
+                            <div class="flex-1">
+                                <h4 class="font-serif text-florence-dark font-semibold leading-tight text-sm md:text-base mb-1">Brinco Quadrado Zircônias</h4>
+                                <span class="text-[9px] md:text-[10px] text-gray-400 tracking-wider">REF: FL10-BRINCO</span>
+                                <p class="text-[10px] md:text-xs text-gray-500 leading-relaxed mt-2 line-clamp-2 md:line-clamp-3">Formato quadrado cravejado com delicadas zircônias que proporcionam brilho na medida certa.</p>
+                            </div>
+                            <div class="flex flex-col mt-3 pt-3 border-t border-gray-100 gap-2">
+                                <span class="font-bold text-florence-gold text-base md:text-lg">R$ 34,90</span>
+                                <button onclick="buyProduct('Brinco Quadrado Dourado com Zircônias', 'FL10-BRINCO')" class="w-full bg-[#25D366] text-white text-[11px] md:text-xs px-3 py-2.5 rounded-lg font-medium hover:bg-[#20bd5a] transition-colors flex items-center justify-center gap-2 shadow-sm">
+                                    <i class="fab fa-whatsapp text-sm md:text-base"></i> Comprar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Produto 12: Brinco Folhas Douradas -->
+                    <div class="bg-white rounded-xl border border-florence-beige shadow-sm overflow-hidden flex flex-col group h-full">
+                        <div class="w-full aspect-[4/5] relative bg-[#faf9f7] p-2 flex items-center justify-center">
+                            <img src="./Brinco Folha.png" alt="Brinco Folhas Douradas" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700">
+                        </div>
+                        <div class="p-3 md:p-4 flex flex-col flex-1">
+                            <div class="flex-1">
+                                <h4 class="font-serif text-florence-dark font-semibold leading-tight text-sm md:text-base mb-1">Brinco Folhas Douradas</h4>
+                                <span class="text-[9px] md:text-[10px] text-gray-400 tracking-wider">REF: FL04-BRINCO</span>
+                                <p class="text-[10px] md:text-xs text-gray-500 leading-relaxed mt-2 line-clamp-2 md:line-clamp-3">Formato de folhas alongadas, com acabamento texturizado que destaca os detalhes da peça.</p>
+                            </div>
+                            <div class="flex flex-col mt-3 pt-3 border-t border-gray-100 gap-2">
+                                <span class="font-bold text-florence-gold text-base md:text-lg">R$ 54,90</span>
+                                <button onclick="buyProduct('Brinco Folhas Douradas', 'FL04-BRINCO')" class="w-full bg-[#25D366] text-white text-[11px] md:text-xs px-3 py-2.5 rounded-lg font-medium hover:bg-[#20bd5a] transition-colors flex items-center justify-center gap-2 shadow-sm">
+                                    <i class="fab fa-whatsapp text-sm md:text-base"></i> Comprar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Produto 13: Brinco Quadrado Cristal -->
+                    <div class="bg-white rounded-xl border border-florence-beige shadow-sm overflow-hidden flex flex-col group h-full">
+                        <div class="w-full aspect-[4/5] relative bg-[#faf9f7] p-2 flex items-center justify-center">
+                            <img src="./Brinco Quadrado Cristal.png" alt="Brinco Quadrado Cristal" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700">
+                        </div>
+                        <div class="p-3 md:p-4 flex flex-col flex-1">
+                            <div class="flex-1">
+                                <h4 class="font-serif text-florence-dark font-semibold leading-tight text-sm md:text-base mb-1">Brinco Quadrado Cristal</h4>
+                                <span class="text-[9px] md:text-[10px] text-gray-400 tracking-wider">REF: FL07-BRINCO</span>
+                                <p class="text-[10px] md:text-xs text-gray-500 leading-relaxed mt-2 line-clamp-2 md:line-clamp-3">Brinco pequeno com cristal lapidado em formato quadrado, delicado e discreto para o uso diário.</p>
+                            </div>
+                            <div class="flex flex-col mt-3 pt-3 border-t border-gray-100 gap-2">
+                                <span class="font-bold text-florence-gold text-base md:text-lg">R$ 34,90</span>
+                                <button onclick="buyProduct('Brinco Quadrado Cristal', 'FL07-BRINCO')" class="w-full bg-[#25D366] text-white text-[11px] md:text-xs px-3 py-2.5 rounded-lg font-medium hover:bg-[#20bd5a] transition-colors flex items-center justify-center gap-2 shadow-sm">
+                                    <i class="fab fa-whatsapp text-sm md:text-base"></i> Comprar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Produto 14: Brinco Gota com Cristal Dourado -->
+                    <div class="bg-white rounded-xl border border-florence-beige shadow-sm overflow-hidden flex flex-col group h-full">
+                        <div class="w-full aspect-[4/5] relative bg-[#faf9f7] p-2 flex items-center justify-center">
+                            <img src="./Brinco Gota Dourado.png" alt="Brinco Gota com Cristal Dourado" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700">
+                        </div>
+                        <div class="p-3 md:p-4 flex flex-col flex-1">
+                            <div class="flex-1">
+                                <h4 class="font-serif text-florence-dark font-semibold leading-tight text-sm md:text-base mb-1">Brinco Gota com Cristal</h4>
+                                <span class="text-[9px] md:text-[10px] text-gray-400 tracking-wider">REF: FL09-BRINCO</span>
+                                <p class="text-[10px] md:text-xs text-gray-500 leading-relaxed mt-2 line-clamp-2 md:line-clamp-3">Cristal em formato de gota contornado por microcristais que proporcionam brilho e sofisticação.</p>
+                            </div>
+                            <div class="flex flex-col mt-3 pt-3 border-t border-gray-100 gap-2">
+                                <span class="font-bold text-florence-gold text-base md:text-lg">R$ 49,90</span>
+                                <button onclick="buyProduct('Brinco Gota com Cristal Dourado', 'FL09-BRINCO')" class="w-full bg-[#25D366] text-white text-[11px] md:text-xs px-3 py-2.5 rounded-lg font-medium hover:bg-[#20bd5a] transition-colors flex items-center justify-center gap-2 shadow-sm">
+                                    <i class="fab fa-whatsapp text-sm md:text-base"></i> Comprar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Produto 15: Brinco Orgânico Dourado Texturizado -->
+                    <div class="bg-white rounded-xl border border-florence-beige shadow-sm overflow-hidden flex flex-col group h-full">
+                        <div class="w-full aspect-[4/5] relative bg-[#faf9f7] p-2 flex items-center justify-center">
+                            <img src="./Brinco Dourado Redondo Texturizado.png" alt="Brinco Orgânico Dourado Texturizado" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700">
+                        </div>
+                        <div class="p-3 md:p-4 flex flex-col flex-1">
+                            <div class="flex-1">
+                                <h4 class="font-serif text-florence-dark font-semibold leading-tight text-sm md:text-base mb-1">Brinco Orgânico Texturizado</h4>
+                                <span class="text-[9px] md:text-[10px] text-gray-400 tracking-wider">REF: FL02-BRINCO</span>
+                                <p class="text-[10px] md:text-xs text-gray-500 leading-relaxed mt-2 line-clamp-2 md:line-clamp-3">Design orgânico e acabamento texturizado, moderno e versátil para valorizar qualquer produção.</p>
+                            </div>
+                            <div class="flex flex-col mt-3 pt-3 border-t border-gray-100 gap-2">
+                                <span class="font-bold text-florence-gold text-base md:text-lg">R$ 54,90</span>
+                                <button onclick="buyProduct('Brinco Orgânico Dourado Texturizado', 'FL02-BRINCO')" class="w-full bg-[#25D366] text-white text-[11px] md:text-xs px-3 py-2.5 rounded-lg font-medium hover:bg-[#20bd5a] transition-colors flex items-center justify-center gap-2 shadow-sm">
+                                    <i class="fab fa-whatsapp text-sm md:text-base"></i> Comprar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Produto 16: Colar Nossa Senhora Aparecida Dourado -->
+                    <div class="bg-white rounded-xl border border-florence-beige shadow-sm overflow-hidden flex flex-col group h-full">
+                        <div class="w-full aspect-[4/5] relative bg-[#faf9f7] p-2 flex items-center justify-center">
+                            <img src="./Colar N Senhora.png" alt="Colar Nossa Senhora Aparecida Dourado" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700">
+                        </div>
+                        <div class="p-3 md:p-4 flex flex-col flex-1">
+                            <div class="flex-1">
+                                <h4 class="font-serif text-florence-dark font-semibold leading-tight text-sm md:text-base mb-1">Colar Nossa Senhora</h4>
+                                <span class="text-[9px] md:text-[10px] text-gray-400 tracking-wider">REF: FL12-COLAR</span>
+                                <p class="text-[10px] md:text-xs text-gray-500 leading-relaxed mt-2 line-clamp-2 md:line-clamp-3">Colar com pingente delicado de Nossa Senhora Aparecida, adornado com cristais azuis. Elegante e cheio de significado.</p>
+                            </div>
+                            <div class="flex flex-col mt-3 pt-3 border-t border-gray-100 gap-2">
+                                <span class="font-bold text-florence-gold text-base md:text-lg">R$ 89,90</span>
+                                <button onclick="buyProduct('Colar Nossa Senhora Aparecida Dourado', 'FL12-COLAR')" class="w-full bg-[#25D366] text-white text-[11px] md:text-xs px-3 py-2.5 rounded-lg font-medium hover:bg-[#20bd5a] transition-colors flex items-center justify-center gap-2 shadow-sm">
+                                    <i class="fab fa-whatsapp text-sm md:text-base"></i> Comprar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Modal 3: Guia de Cuidados -->
+    <!-- Modal 2: Guia de Cuidados -->
     <div id="modal-cuidados" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4">
-        <!-- Backdrop -->
         <div class="absolute inset-0 bg-florence-dark/40 backdrop-blur-sm transition-opacity" onclick="closeModal('modal-cuidados')"></div>
         
-        <!-- Modal Content -->
         <div class="relative bg-[#FDFBF9] border border-florence-beige rounded-2xl p-6 md:p-8 w-full max-w-md shadow-2xl animate-fade-in-up max-h-[80vh] overflow-y-auto no-scrollbar">
             <button onclick="closeModal('modal-cuidados')" class="absolute top-4 right-4 text-gray-400 hover:text-florence-gold transition-colors w-8 h-8 flex items-center justify-center rounded-full bg-gray-50 hover:bg-florence-beige/30">
                 <i class="fas fa-times"></i>
@@ -309,9 +499,7 @@
             </div>
             
             <div class="space-y-4 text-sm text-gray-600 font-light leading-relaxed">
-                <!-- ✏️ EDITAR AQUI: Insira o texto oficial do seu Guia de Cuidados substituindo este conteúdo -->
                 <p>Para manter o brilho e a durabilidade das suas peças Florence Collection, recomendamos alguns cuidados especiais:</p>
-                
                 <ul class="space-y-3 mt-4">
                     <li class="flex items-start gap-3">
                         <i class="fas fa-star text-florence-gold text-[10px] mt-1.5"></i>
@@ -330,7 +518,6 @@
                         <span>Limpe-as suavemente com uma flanela seca após o uso.</span>
                     </li>
                 </ul>
-                
                 <div class="mt-6 p-4 bg-florence-beige/20 rounded-xl border border-florence-beige/50 text-center">
                     <p class="text-xs text-florence-dark font-medium italic">"Uma joia bem cuidada conta histórias por gerações."</p>
                 </div>
@@ -339,12 +526,17 @@
     </div>
 
     <script>
-        // Funcionalidade para abrir e fechar as janelas (Modais)
+        function buyProduct(productName, refCode) {
+            const phone = "5581993026600";
+            const message = `Olá! Gostaria de comprar o produto: ${productName} (${refCode}).`;
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/${phone}?text=${encodedMessage}`, '_blank');
+        }
+
         function openModal(modalId) {
             const modal = document.getElementById(modalId);
             if (modal) {
                 modal.classList.remove('hidden');
-                // Impede o scroll na página de trás quando o modal está aberto
                 document.body.style.overflow = 'hidden';
             }
         }
@@ -353,15 +545,13 @@
             const modal = document.getElementById(modalId);
             if (modal) {
                 modal.classList.add('hidden');
-                // Devolve o scroll normal para a página
                 document.body.style.overflow = 'auto';
             }
         }
 
-        // Fecha o modal ao pressionar a tecla ESC
         document.addEventListener('keydown', function(event) {
             if (event.key === 'Escape') {
-                const modals = ['modal-compre', 'modal-lancamentos', 'modal-cuidados'];
+                const modals = ['modal-catalogo', 'modal-cuidados'];
                 modals.forEach(id => {
                     const el = document.getElementById(id);
                     if (!el.classList.contains('hidden')) {
