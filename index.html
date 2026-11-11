@@ -82,6 +82,53 @@
             text-transform: uppercase;
             pointer-events: none;
         }
+        .black-friday-dialog {
+            position: fixed;
+            inset: 0;
+            width: min(26rem, calc(100% - 2rem), calc(56.25dvh - 1.125rem));
+            max-height: calc(100dvh - 2rem);
+            margin: auto;
+            overflow: auto;
+            border: 1px solid #c19b63;
+            border-radius: 1rem;
+            background: #211711;
+            color: #fff5e5;
+            box-shadow: 0 24px 80px #0007;
+        }
+        .black-friday-dialog::backdrop {
+            background: #1d130ed1;
+        }
+        body:has(.black-friday-dialog[open]) {
+            overflow: hidden;
+        }
+        .black-friday-art {
+            position: relative;
+            display: block;
+            width: 100%;
+            aspect-ratio: 9 / 16;
+            object-fit: cover;
+        }
+        .black-friday-close {
+            position: absolute;
+            z-index: 1;
+            top: 0.6rem;
+            right: 0.6rem;
+            display: grid;
+            place-items: center;
+            width: 2.75rem;
+            height: 2.75rem;
+            border: 1px solid #f1ce9780;
+            border-radius: 50%;
+            background: #211711;
+            color: #fff5e5;
+            font-size: 1.65rem;
+            line-height: 1;
+            cursor: pointer;
+        }
+        .black-friday-close:hover,
+        .black-friday-close:focus-visible {
+            background: #4b3525;
+        }
     </style>
 </head>
 <body class="font-sans text-florence-dark bg-florence-light bg-pattern min-h-screen flex flex-col items-center py-10 px-4 relative z-0">
@@ -189,7 +236,10 @@
                                 <p class="text-[10px] md:text-xs text-gray-500 leading-relaxed mt-2 line-clamp-2 md:line-clamp-3">Colar dourado longo com pingente delicado em formato de gota e pedra cristal. Elegante, feminino e versátil, perfeito para trazer brilho sutil a produções do dia a dia.</p>
                             </div>
                             <div class="flex flex-col mt-3 pt-3 border-t border-gray-100 gap-2">
-                                <span class="font-bold text-florence-gold text-base md:text-lg">R$ 79,90</span>
+                                <div class="flex flex-wrap items-baseline gap-x-2">
+                                    <del class="text-xs text-gray-500">R$ 79,90</del>
+                                    <span class="font-bold text-florence-gold text-base md:text-lg">R$ 59,93</span>
+                                </div>
                                 <button onclick="buyProduct('Colar Dourado Gota Cristal', 'FL13-COLAR')" class="w-full bg-[#25D366] text-white text-[11px] md:text-xs px-3 py-2.5 rounded-lg font-medium hover:bg-[#20bd5a] transition-colors flex items-center justify-center gap-2 shadow-sm">
                                     <i class="fab fa-whatsapp text-sm md:text-base"></i> Comprar
                                 </button>
@@ -227,7 +277,10 @@
                                 <p class="text-[10px] md:text-xs text-gray-500 leading-relaxed mt-2 line-clamp-2 md:line-clamp-3">Minimalista e atemporal, a Argola Lisa Dourada é um clássico indispensável. Com acabamento polido e design leve, é perfeita para o uso diário.</p>
                             </div>
                             <div class="flex flex-col mt-3 pt-3 border-t border-gray-100 gap-2">
-                                <span class="font-bold text-florence-gold text-base md:text-lg">R$ 49,90</span>
+                                <div class="flex flex-wrap items-baseline gap-x-2">
+                                    <del class="text-xs text-gray-500">R$ 49,90</del>
+                                    <span class="font-bold text-florence-gold text-base md:text-lg">R$ 37,42</span>
+                                </div>
                                 <button onclick="buyProduct('Argola Lisa Dourada', 'FL09-ARGOLA')" class="w-full bg-[#25D366] text-white text-[11px] md:text-xs px-3 py-2.5 rounded-lg font-medium hover:bg-[#20bd5a] transition-colors flex items-center justify-center gap-2 shadow-sm">
                                     <i class="fab fa-whatsapp text-sm md:text-base"></i> Comprar
                                 </button>
@@ -247,7 +300,10 @@
                                 <p class="text-[10px] md:text-xs text-gray-500 leading-relaxed mt-2 line-clamp-2 md:line-clamp-3">Delicada e cheia de significado, a Argola Olho Grego combina o design clássico com um pingente, símbolo tradicional de proteção.</p>
                             </div>
                             <div class="flex flex-col mt-3 pt-3 border-t border-gray-100 gap-2">
-                                <span class="font-bold text-florence-gold text-base md:text-lg">R$ 39,90</span>
+                                <div class="flex flex-wrap items-baseline gap-x-2">
+                                    <del class="text-xs text-gray-500">R$ 39,90</del>
+                                    <span class="font-bold text-florence-gold text-base md:text-lg">R$ 29,92</span>
+                                </div>
                                 <button onclick="buyProduct('Argola Olho Grego Dourada', 'FL10-ARGOLA')" class="w-full bg-[#25D366] text-white text-[11px] md:text-xs px-3 py-2.5 rounded-lg font-medium hover:bg-[#20bd5a] transition-colors flex items-center justify-center gap-2 shadow-sm">
                                     <i class="fab fa-whatsapp text-sm md:text-base"></i> Comprar
                                 </button>
@@ -267,7 +323,10 @@
                                 <p class="text-[10px] md:text-xs text-gray-500 leading-relaxed mt-2 line-clamp-2 md:line-clamp-3">Clássico e indispensável, possui uma pedra central de brilho intenso, presa por quatro garras que valorizam sua luminosidade.</p>
                             </div>
                             <div class="flex flex-col mt-3 pt-3 border-t border-gray-100 gap-2">
-                                <span class="font-bold text-florence-gold text-base md:text-lg">R$ 29,90</span>
+                                <div class="flex flex-wrap items-baseline gap-x-2">
+                                    <del class="text-xs text-gray-500">R$ 29,90</del>
+                                    <span class="font-bold text-florence-gold text-base md:text-lg">R$ 22,42</span>
+                                </div>
                                 <button onclick="buyProduct('Brinco Ponto de Luz Dourado', 'FL06-BRINCO')" class="w-full bg-[#25D366] text-white text-[11px] md:text-xs px-3 py-2.5 rounded-lg font-medium hover:bg-[#20bd5a] transition-colors flex items-center justify-center gap-2 shadow-sm">
                                     <i class="fab fa-whatsapp text-sm md:text-base"></i> Comprar
                                 </button>
@@ -287,7 +346,10 @@
                                 <p class="text-[10px] md:text-xs text-gray-500 leading-relaxed mt-2 line-clamp-2 md:line-clamp-3">Anel dourado com aro cruzado e acabamento sofisticado, onde uma das hastes é cravejada com cristais que proporcionam brilho delicado.</p>
                             </div>
                             <div class="flex flex-col mt-3 pt-3 border-t border-gray-100 gap-2">
-                                <span class="font-bold text-florence-gold text-base md:text-lg">R$ 79,90</span>
+                                <div class="flex flex-wrap items-baseline gap-x-2">
+                                    <del class="text-xs text-gray-500">R$ 79,90</del>
+                                    <span class="font-bold text-florence-gold text-base md:text-lg">R$ 59,93</span>
+                                </div>
                                 <button onclick="buyProduct('Anel Dourado Cruzado com Cristais', 'FL15-ANEL')" class="w-full bg-[#25D366] text-white text-[11px] md:text-xs px-3 py-2.5 rounded-lg font-medium hover:bg-[#20bd5a] transition-colors flex items-center justify-center gap-2 shadow-sm">
                                     <i class="fab fa-whatsapp text-sm md:text-base"></i> Comprar
                                 </button>
@@ -307,7 +369,10 @@
                                 <p class="text-[10px] md:text-xs text-gray-500 leading-relaxed mt-2 line-clamp-2 md:line-clamp-3">Design contemporâneo em formato curvo, enriquecido por uma fileira delicada de cristais. Transmite elegância e leveza.</p>
                             </div>
                             <div class="flex flex-col mt-3 pt-3 border-t border-gray-100 gap-2">
-                                <span class="font-bold text-florence-gold text-base md:text-lg">R$ 59,90</span>
+                                <div class="flex flex-wrap items-baseline gap-x-2">
+                                    <del class="text-xs text-gray-500">R$ 59,90</del>
+                                    <span class="font-bold text-florence-gold text-base md:text-lg">R$ 44,92</span>
+                                </div>
                                 <button onclick="buyProduct('Anel Dourado Curvo com Cristais', 'FL14-ANEL')" class="w-full bg-[#25D366] text-white text-[11px] md:text-xs px-3 py-2.5 rounded-lg font-medium hover:bg-[#20bd5a] transition-colors flex items-center justify-center gap-2 shadow-sm">
                                     <i class="fab fa-whatsapp text-sm md:text-base"></i> Comprar
                                 </button>
@@ -327,7 +392,10 @@
                                 <p class="text-[10px] md:text-xs text-gray-500 leading-relaxed mt-2 line-clamp-2 md:line-clamp-3">Aro fino e detalhe central em formato gota, cravejado com cristais que proporcionam brilho delicado e elegante.</p>
                             </div>
                             <div class="flex flex-col mt-3 pt-3 border-t border-gray-100 gap-2">
-                                <span class="font-bold text-florence-gold text-base md:text-lg">R$ 54,90</span>
+                                <div class="flex flex-wrap items-baseline gap-x-2">
+                                    <del class="text-xs text-gray-500">R$ 54,90</del>
+                                    <span class="font-bold text-florence-gold text-base md:text-lg">R$ 41,17</span>
+                                </div>
                                 <button onclick="buyProduct('Anel Dourado Gota com Cristais', 'FL16-ANEL')" class="w-full bg-[#25D366] text-white text-[11px] md:text-xs px-3 py-2.5 rounded-lg font-medium hover:bg-[#20bd5a] transition-colors flex items-center justify-center gap-2 shadow-sm">
                                     <i class="fab fa-whatsapp text-sm md:text-base"></i> Comprar
                                 </button>
@@ -347,7 +415,10 @@
                                 <p class="text-[10px] md:text-xs text-gray-500 leading-relaxed mt-2 line-clamp-2 md:line-clamp-3">Argola prateada com acabamento trabalhado em relevo e detalhes ornamentais que valorizam a peça.</p>
                             </div>
                             <div class="flex flex-col mt-3 pt-3 border-t border-gray-100 gap-2">
-                                <span class="font-bold text-florence-gold text-base md:text-lg">R$ 34,90</span>
+                                <div class="flex flex-wrap items-baseline gap-x-2">
+                                    <del class="text-xs text-gray-500">R$ 34,90</del>
+                                    <span class="font-bold text-florence-gold text-base md:text-lg">R$ 26,17</span>
+                                </div>
                                 <button onclick="buyProduct('Argola Prateada Trabalhada', 'FL08-ARGOLA')" class="w-full bg-[#25D366] text-white text-[11px] md:text-xs px-3 py-2.5 rounded-lg font-medium hover:bg-[#20bd5a] transition-colors flex items-center justify-center gap-2 shadow-sm">
                                     <i class="fab fa-whatsapp text-sm md:text-base"></i> Comprar
                                 </button>
@@ -367,7 +438,10 @@
                                 <p class="text-[10px] md:text-xs text-gray-500 leading-relaxed mt-2 line-clamp-2 md:line-clamp-3">Design orgânico vazado e acabamento polido, inspirado nas formas naturais. Peça contemporânea e leve.</p>
                             </div>
                             <div class="flex flex-col mt-3 pt-3 border-t border-gray-100 gap-2">
-                                <span class="font-bold text-florence-gold text-base md:text-lg">R$ 59,90</span>
+                                <div class="flex flex-wrap items-baseline gap-x-2">
+                                    <del class="text-xs text-gray-500">R$ 59,90</del>
+                                    <span class="font-bold text-florence-gold text-base md:text-lg">R$ 44,92</span>
+                                </div>
                                 <button onclick="buyProduct('Brinco Orgânico Dourado Vazado', 'FL01-BRINCO')" class="w-full bg-[#25D366] text-white text-[11px] md:text-xs px-3 py-2.5 rounded-lg font-medium hover:bg-[#20bd5a] transition-colors flex items-center justify-center gap-2 shadow-sm">
                                     <i class="fab fa-whatsapp text-sm md:text-base"></i> Comprar
                                 </button>
@@ -387,7 +461,10 @@
                                 <p class="text-[10px] md:text-xs text-gray-500 leading-relaxed mt-2 line-clamp-2 md:line-clamp-3">Formato quadrado cravejado com delicadas zircônias que proporcionam brilho na medida certa.</p>
                             </div>
                             <div class="flex flex-col mt-3 pt-3 border-t border-gray-100 gap-2">
-                                <span class="font-bold text-florence-gold text-base md:text-lg">R$ 34,90</span>
+                                <div class="flex flex-wrap items-baseline gap-x-2">
+                                    <del class="text-xs text-gray-500">R$ 34,90</del>
+                                    <span class="font-bold text-florence-gold text-base md:text-lg">R$ 26,17</span>
+                                </div>
                                 <button onclick="buyProduct('Brinco Quadrado Dourado com Zircônias', 'FL10-BRINCO')" class="w-full bg-[#25D366] text-white text-[11px] md:text-xs px-3 py-2.5 rounded-lg font-medium hover:bg-[#20bd5a] transition-colors flex items-center justify-center gap-2 shadow-sm">
                                     <i class="fab fa-whatsapp text-sm md:text-base"></i> Comprar
                                 </button>
@@ -407,7 +484,10 @@
                                 <p class="text-[10px] md:text-xs text-gray-500 leading-relaxed mt-2 line-clamp-2 md:line-clamp-3">Formato de folhas alongadas, com acabamento texturizado que destaca os detalhes da peça.</p>
                             </div>
                             <div class="flex flex-col mt-3 pt-3 border-t border-gray-100 gap-2">
-                                <span class="font-bold text-florence-gold text-base md:text-lg">R$ 54,90</span>
+                                <div class="flex flex-wrap items-baseline gap-x-2">
+                                    <del class="text-xs text-gray-500">R$ 54,90</del>
+                                    <span class="font-bold text-florence-gold text-base md:text-lg">R$ 41,17</span>
+                                </div>
                                 <button onclick="buyProduct('Brinco Folhas Douradas', 'FL04-BRINCO')" class="w-full bg-[#25D366] text-white text-[11px] md:text-xs px-3 py-2.5 rounded-lg font-medium hover:bg-[#20bd5a] transition-colors flex items-center justify-center gap-2 shadow-sm">
                                     <i class="fab fa-whatsapp text-sm md:text-base"></i> Comprar
                                 </button>
@@ -445,7 +525,10 @@
                                 <p class="text-[10px] md:text-xs text-gray-500 leading-relaxed mt-2 line-clamp-2 md:line-clamp-3">Cristal em formato de gota contornado por microcristais que proporcionam brilho e sofisticação.</p>
                             </div>
                             <div class="flex flex-col mt-3 pt-3 border-t border-gray-100 gap-2">
-                                <span class="font-bold text-florence-gold text-base md:text-lg">R$ 49,90</span>
+                                <div class="flex flex-wrap items-baseline gap-x-2">
+                                    <del class="text-xs text-gray-500">R$ 49,90</del>
+                                    <span class="font-bold text-florence-gold text-base md:text-lg">R$ 37,42</span>
+                                </div>
                                 <button onclick="buyProduct('Brinco Gota com Cristal Dourado', 'FL09-BRINCO')" class="w-full bg-[#25D366] text-white text-[11px] md:text-xs px-3 py-2.5 rounded-lg font-medium hover:bg-[#20bd5a] transition-colors flex items-center justify-center gap-2 shadow-sm">
                                     <i class="fab fa-whatsapp text-sm md:text-base"></i> Comprar
                                 </button>
@@ -465,7 +548,10 @@
                                 <p class="text-[10px] md:text-xs text-gray-500 leading-relaxed mt-2 line-clamp-2 md:line-clamp-3">Design orgânico e acabamento texturizado, moderno e versátil para valorizar qualquer produção.</p>
                             </div>
                             <div class="flex flex-col mt-3 pt-3 border-t border-gray-100 gap-2">
-                                <span class="font-bold text-florence-gold text-base md:text-lg">R$ 54,90</span>
+                                <div class="flex flex-wrap items-baseline gap-x-2">
+                                    <del class="text-xs text-gray-500">R$ 54,90</del>
+                                    <span class="font-bold text-florence-gold text-base md:text-lg">R$ 41,17</span>
+                                </div>
                                 <button onclick="buyProduct('Brinco Orgânico Dourado Texturizado', 'FL02-BRINCO')" class="w-full bg-[#25D366] text-white text-[11px] md:text-xs px-3 py-2.5 rounded-lg font-medium hover:bg-[#20bd5a] transition-colors flex items-center justify-center gap-2 shadow-sm">
                                     <i class="fab fa-whatsapp text-sm md:text-base"></i> Comprar
                                 </button>
@@ -538,7 +624,17 @@
         </div>
     </div>
 
+
+    <dialog id="black-friday" class="black-friday-dialog" aria-label="Black Friday da Florence Collection">
+        <img class="black-friday-art" src="./black-friday-florence.jpg" alt="Começa hoje a Black Friday especial de 11/11" width="900" height="1600" fetchpriority="high">
+        <form method="dialog">
+            <button type="submit" class="black-friday-close" aria-label="Fechar aviso da Black Friday" autofocus>&times;</button>
+        </form>
+    </dialog>
+
     <script>
+        document.getElementById('black-friday').showModal();
+
         function buyProduct(productName, refCode) {
             const phone = "5581993026600";
             const message = `Olá! Gostaria de comprar o produto: ${productName} (${refCode}).`;
