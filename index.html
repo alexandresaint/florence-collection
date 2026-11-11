@@ -89,7 +89,6 @@
             max-height: calc(100dvh - 2rem);
             margin: auto;
             overflow: auto;
-            border: 1px solid #c19b63;
             border-radius: 1rem;
             background: #211711;
             color: #fff5e5;
@@ -100,6 +99,29 @@
         }
         body:has(.black-friday-dialog[open]) {
             overflow: hidden;
+        }
+        .black-friday-catalog {
+            position: relative;
+            display: block;
+            width: 100%;
+            cursor: pointer;
+        }
+        .black-friday-catalog:focus-visible {
+            outline: 2px solid #fff5e5;
+            outline-offset: -4px;
+        }
+        .black-friday-catalog-label {
+            position: absolute;
+            right: 50%;
+            bottom: 0.9rem;
+            transform: translateX(50%);
+            border-radius: 9999px;
+            padding: 0.45rem 0.9rem;
+            background: #211711;
+            color: #fff5e5;
+            font-size: 0.75rem;
+            font-weight: 600;
+            white-space: nowrap;
         }
         .black-friday-art {
             position: relative;
@@ -227,7 +249,7 @@
                     <div class="bg-white rounded-xl border border-florence-beige shadow-sm overflow-hidden flex flex-col group h-full">
                         <!-- AJUSTE DA IMAGEM: aspect-[4/5] e object-contain para não cortar a foto -->
                         <div class="w-full aspect-[4/5] relative bg-[#faf9f7] p-2 flex items-center justify-center">
-                            <img src="./Colar Gota.png" alt="Colar Dourado Gota Cristal" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700">
+                            <img src="./catalogo/colar-gota.jpg" width="720" height="900" loading="lazy" decoding="async" alt="Colar Dourado Gota Cristal" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700">
                         </div>
                         <div class="p-3 md:p-4 flex flex-col flex-1">
                             <div class="flex-1">
@@ -250,7 +272,7 @@
                     <!-- Produto 2: Brinco Gota Vazada Dourado -->
                     <div class="bg-white rounded-xl border border-florence-beige shadow-sm overflow-hidden flex flex-col group h-full">
                         <div class="w-full aspect-[4/5] relative overflow-hidden bg-[#faf9f7] p-2 flex items-center justify-center">
-                            <img src="./Brinco Gota Organico.png" alt="Brinco Gota Vazada Dourado" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700">
+                            <img src="./catalogo/brinco-gota-organico.jpg" width="720" height="900" loading="lazy" decoding="async" alt="Brinco Gota Vazada Dourado" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700">
                             <span class="sold-ribbon">Vendido</span>
                         </div>
                         <div class="p-3 md:p-4 flex flex-col flex-1">
@@ -268,7 +290,7 @@
                     <!-- Produto 3: Argola Lisa Dourada -->
                     <div class="bg-white rounded-xl border border-florence-beige shadow-sm overflow-hidden flex flex-col group h-full">
                         <div class="w-full aspect-[4/5] relative bg-[#faf9f7] p-2 flex items-center justify-center">
-                            <img src="./Argola Dourada Lisa.png" alt="Argola Lisa Dourada" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700">
+                            <img src="./catalogo/argola-dourada-lisa.jpg" width="720" height="900" loading="lazy" decoding="async" alt="Argola Lisa Dourada" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700">
                         </div>
                         <div class="p-3 md:p-4 flex flex-col flex-1">
                             <div class="flex-1">
@@ -291,7 +313,7 @@
                     <!-- Produto 4: Argola Olho Grego Dourada -->
                     <div class="bg-white rounded-xl border border-florence-beige shadow-sm overflow-hidden flex flex-col group h-full">
                         <div class="w-full aspect-[4/5] relative bg-[#faf9f7] p-2 flex items-center justify-center">
-                            <img src="./Argola Dourada Olho Grego.png" alt="Argola Olho Grego Dourada" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700">
+                            <img src="./catalogo/argola-olho-grego.jpg" width="720" height="900" loading="lazy" decoding="async" alt="Argola Olho Grego Dourada" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700">
                         </div>
                         <div class="p-3 md:p-4 flex flex-col flex-1">
                             <div class="flex-1">
@@ -314,7 +336,7 @@
                     <!-- Produto 5: Brinco Ponto de Luz Dourado -->
                     <div class="bg-white rounded-xl border border-florence-beige shadow-sm overflow-hidden flex flex-col group h-full">
                         <div class="w-full aspect-[4/5] relative bg-[#faf9f7] p-2 flex items-center justify-center">
-                            <img src="./Brinco Pequeno Ponto de Luz.png" alt="Brinco Ponto de Luz Dourado" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700">
+                            <img src="./catalogo/brinco-ponto-de-luz.jpg" width="720" height="960" loading="lazy" decoding="async" alt="Brinco Ponto de Luz Dourado" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700">
                         </div>
                         <div class="p-3 md:p-4 flex flex-col flex-1">
                             <div class="flex-1">
@@ -337,7 +359,7 @@
                     <!-- Produto 6: Anel Dourado Cruzado com Cristais -->
                     <div class="bg-white rounded-xl border border-florence-beige shadow-sm overflow-hidden flex flex-col group h-full">
                         <div class="w-full aspect-[4/5] relative bg-[#faf9f7] p-2 flex items-center justify-center">
-                            <img src="./Anel Dourado Traçado.png" alt="Anel Dourado Cruzado com Cristais" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700">
+                            <img src="./catalogo/anel-dourado-tracado.jpg" width="720" height="960" loading="lazy" decoding="async" alt="Anel Dourado Cruzado com Cristais" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700">
                         </div>
                         <div class="p-3 md:p-4 flex flex-col flex-1">
                             <div class="flex-1">
@@ -360,7 +382,7 @@
                     <!-- Produto 7: Anel Dourado Curvo com Cristais -->
                     <div class="bg-white rounded-xl border border-florence-beige shadow-sm overflow-hidden flex flex-col group h-full">
                         <div class="w-full aspect-[4/5] relative bg-[#faf9f7] p-2 flex items-center justify-center">
-                            <img src="./Anel Dourado Ondulado.png" alt="Anel Dourado Curvo com Cristais" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700">
+                            <img src="./catalogo/anel-dourado-ondulado.jpg" width="720" height="960" loading="lazy" decoding="async" alt="Anel Dourado Curvo com Cristais" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700">
                         </div>
                         <div class="p-3 md:p-4 flex flex-col flex-1">
                             <div class="flex-1">
@@ -383,7 +405,7 @@
                     <!-- Produto 8: Anel Dourado Gota com Cristais -->
                     <div class="bg-white rounded-xl border border-florence-beige shadow-sm overflow-hidden flex flex-col group h-full">
                         <div class="w-full aspect-[4/5] relative bg-[#faf9f7] p-2 flex items-center justify-center">
-                            <img src="./Anel Dourado Gota.png" alt="Anel Dourado Gota com Cristais" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700">
+                            <img src="./catalogo/anel-dourado-gota.jpg" width="720" height="900" loading="lazy" decoding="async" alt="Anel Dourado Gota com Cristais" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700">
                         </div>
                         <div class="p-3 md:p-4 flex flex-col flex-1">
                             <div class="flex-1">
@@ -406,7 +428,7 @@
                     <!-- Produto 9: Argola Prateada Trabalhada -->
                     <div class="bg-white rounded-xl border border-florence-beige shadow-sm overflow-hidden flex flex-col group h-full">
                         <div class="w-full aspect-[4/5] relative bg-[#faf9f7] p-2 flex items-center justify-center">
-                            <img src="./Argola Metalica Trabalhada.png" alt="Argola Prateada Trabalhada" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700">
+                            <img src="./catalogo/argola-metalica-trabalhada.jpg" width="720" height="900" loading="lazy" decoding="async" alt="Argola Prateada Trabalhada" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700">
                         </div>
                         <div class="p-3 md:p-4 flex flex-col flex-1">
                             <div class="flex-1">
@@ -429,7 +451,7 @@
                     <!-- Produto 10: Brinco Orgânico Dourado Vazado -->
                     <div class="bg-white rounded-xl border border-florence-beige shadow-sm overflow-hidden flex flex-col group h-full">
                         <div class="w-full aspect-[4/5] relative bg-[#faf9f7] p-2 flex items-center justify-center">
-                            <img src="./Brinco Organico Texturizado.png" alt="Brinco Orgânico Dourado Vazado" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700">
+                            <img src="./catalogo/brinco-organico-texturizado.jpg" width="720" height="900" loading="lazy" decoding="async" alt="Brinco Orgânico Dourado Vazado" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700">
                         </div>
                         <div class="p-3 md:p-4 flex flex-col flex-1">
                             <div class="flex-1">
@@ -452,7 +474,7 @@
                     <!-- Produto 11: Brinco Quadrado Dourado com Zircônias -->
                     <div class="bg-white rounded-xl border border-florence-beige shadow-sm overflow-hidden flex flex-col group h-full">
                         <div class="w-full aspect-[4/5] relative bg-[#faf9f7] p-2 flex items-center justify-center">
-                            <img src="./Brinco Quadrado Zirconia.png" alt="Brinco Quadrado Dourado com Zircônias" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700">
+                            <img src="./catalogo/brinco-quadrado-zirconia.jpg" width="720" height="900" loading="lazy" decoding="async" alt="Brinco Quadrado Dourado com Zircônias" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700">
                         </div>
                         <div class="p-3 md:p-4 flex flex-col flex-1">
                             <div class="flex-1">
@@ -475,7 +497,7 @@
                     <!-- Produto 12: Brinco Folhas Douradas -->
                     <div class="bg-white rounded-xl border border-florence-beige shadow-sm overflow-hidden flex flex-col group h-full">
                         <div class="w-full aspect-[4/5] relative bg-[#faf9f7] p-2 flex items-center justify-center">
-                            <img src="./Brinco Folha.png" alt="Brinco Folhas Douradas" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700">
+                            <img src="./catalogo/brinco-folha.jpg" width="720" height="900" loading="lazy" decoding="async" alt="Brinco Folhas Douradas" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700">
                         </div>
                         <div class="p-3 md:p-4 flex flex-col flex-1">
                             <div class="flex-1">
@@ -498,7 +520,7 @@
                     <!-- Produto 13: Brinco Quadrado Cristal -->
                     <div class="bg-white rounded-xl border border-florence-beige shadow-sm overflow-hidden flex flex-col group h-full">
                         <div class="w-full aspect-[4/5] relative overflow-hidden bg-[#faf9f7] p-2 flex items-center justify-center">
-                            <img src="./Brinco Quadrado Cristal.png" alt="Brinco Quadrado Cristal" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700">
+                            <img src="./catalogo/brinco-quadrado-cristal.jpg" width="720" height="900" loading="lazy" decoding="async" alt="Brinco Quadrado Cristal" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700">
                             <span class="sold-ribbon">Vendido</span>
                         </div>
                         <div class="p-3 md:p-4 flex flex-col flex-1">
@@ -516,7 +538,7 @@
                     <!-- Produto 14: Brinco Gota com Cristal Dourado -->
                     <div class="bg-white rounded-xl border border-florence-beige shadow-sm overflow-hidden flex flex-col group h-full">
                         <div class="w-full aspect-[4/5] relative bg-[#faf9f7] p-2 flex items-center justify-center">
-                            <img src="./Brinco Gota Dourado.png" alt="Brinco Gota com Cristal Dourado" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700">
+                            <img src="./catalogo/brinco-gota-dourado.jpg" width="720" height="900" loading="lazy" decoding="async" alt="Brinco Gota com Cristal Dourado" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700">
                         </div>
                         <div class="p-3 md:p-4 flex flex-col flex-1">
                             <div class="flex-1">
@@ -539,7 +561,7 @@
                     <!-- Produto 15: Brinco Orgânico Dourado Texturizado -->
                     <div class="bg-white rounded-xl border border-florence-beige shadow-sm overflow-hidden flex flex-col group h-full">
                         <div class="w-full aspect-[4/5] relative bg-[#faf9f7] p-2 flex items-center justify-center">
-                            <img src="./Brinco Dourado Redondo Texturizado.png" alt="Brinco Orgânico Dourado Texturizado" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700">
+                            <img src="./catalogo/brinco-redondo-texturizado.jpg" width="720" height="900" loading="lazy" decoding="async" alt="Brinco Orgânico Dourado Texturizado" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700">
                         </div>
                         <div class="p-3 md:p-4 flex flex-col flex-1">
                             <div class="flex-1">
@@ -562,7 +584,7 @@
                     <!-- Produto 16: Colar Nossa Senhora Aparecida Dourado -->
                     <div class="bg-white rounded-xl border border-florence-beige shadow-sm overflow-hidden flex flex-col group h-full">
                         <div class="w-full aspect-[4/5] relative overflow-hidden bg-[#faf9f7] p-2 flex items-center justify-center">
-                            <img src="./Colar N Senhora.png" alt="Colar Nossa Senhora Aparecida Dourado" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700">
+                            <img src="./catalogo/colar-nossa-senhora.jpg" width="720" height="900" loading="lazy" decoding="async" alt="Colar Nossa Senhora Aparecida Dourado" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700">
                             <span class="sold-ribbon">Vendido</span>
                         </div>
                         <div class="p-3 md:p-4 flex flex-col flex-1">
@@ -626,7 +648,10 @@
 
 
     <dialog id="black-friday" class="black-friday-dialog" aria-label="Black Friday da Florence Collection">
-        <img class="black-friday-art" src="./black-friday-florence.jpg" alt="Começa hoje a Black Friday especial de 11/11" width="900" height="1600" fetchpriority="high">
+        <button type="button" class="black-friday-catalog" onclick="openBlackFridayCatalog()" aria-label="Ver catálogo da Black Friday">
+            <img class="black-friday-art" src="./black-friday-florence.jpg" alt="Começa hoje a Black Friday especial de 11/11" width="900" height="1600" fetchpriority="high">
+            <span class="black-friday-catalog-label">Ver catálogo</span>
+        </button>
         <form method="dialog">
             <button type="submit" class="black-friday-close" aria-label="Fechar aviso da Black Friday" autofocus>&times;</button>
         </form>
@@ -640,6 +665,12 @@
             const message = `Olá! Gostaria de comprar o produto: ${productName} (${refCode}).`;
             const encodedMessage = encodeURIComponent(message);
             window.open(`https://wa.me/${phone}?text=${encodedMessage}`, '_blank');
+        }
+
+        function openBlackFridayCatalog() {
+            document.getElementById('black-friday').close();
+            openModal('modal-catalogo');
+            document.querySelector('#modal-catalogo button').focus();
         }
 
         function openModal(modalId) {
